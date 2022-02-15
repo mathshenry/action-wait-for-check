@@ -33,12 +33,11 @@ export const poll = async (options: Options): Promise<string> => {
       `Retrieving check runs named ${checkName} on ${owner}/${repo}@${ref}...`
     )
     const result = await client.checks.listForRef({
-      // eslint-disable-next-line @typescript-eslint/camelcase
       owner,
       repo,
       ref
     })
-    log(result)
+    log(JSON.stringify(result))
     log(
       `--Retrieved ${result.data.check_runs.length} check runs named ${checkName}`
     )
